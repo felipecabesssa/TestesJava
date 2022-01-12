@@ -2,7 +2,6 @@ package br.com.alura.leilao.controller;
 
 import java.security.Principal;
 
-import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +25,6 @@ public class LanceController {
 	private LanceService service;
 
 	@RequestMapping(method = RequestMethod.POST)
-	@Transactional
 	public ModelAndView novoLance(@Valid @ModelAttribute("lance") NovoLanceDto lanceDto, Errors erros, Principal principal, RedirectAttributes redirectAttributes) {
 		Leilao leilao = service.getLeilao(lanceDto.getLeilaoId());
 
